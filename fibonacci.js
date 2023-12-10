@@ -8,10 +8,10 @@ function fib(n) {
     }
     return fibo;
 };
-console.log(fib(50));
+console.log("fib1--->",fib(50));
 
 //using for loop
-function fib(n) {
+function fib2(n) {
     let fibo = [0,1];
     let nextfib = 1;
     for(let i=0; i <= n; i++){
@@ -23,4 +23,4 @@ function fib(n) {
     };
     return fibo;
 };
-console.log(fib(50))
+console.log("fib2--->",fib2(50))
