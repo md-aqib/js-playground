@@ -10,7 +10,7 @@ function maxChar(str) {
     let maxChar = "";
     let maxCount = 0;
     for(let el of str) {
-        obj[el] = obj[el]++ || 1;
+        obj[el] = (obj[el] || 0) + 1;
     };
     for(let ele in obj) {
         if(obj[ele] > maxCount) {
@@ -20,4 +20,4 @@ function maxChar(str) {
     }
     return { maxChar, maxCount }
 }
-console.log(maxChar("djhdjghgggglo"))
+console.log(maxChar("djjjjjjjjjjjjjhdjghgggglo"))
