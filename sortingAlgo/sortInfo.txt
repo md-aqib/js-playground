@@ -1,0 +1,13 @@
+Best sorting methods:
+
+Algo      Best      Avg      Worst      Stable
+Bubble    O(n)      O(n^2)   O(n^2)     Yes
+Selection O(n^2)    O(n^2)   O(n^2)     No
+Insertion O(n)      O(n^2)   O(n^2)     Yes
+Merge     O(nlogn)  O(nlogn) O(nlogn)   Yes
+Quick     O(nlogn)  O(nlogn) O(n^2)     No
+Heap      O(nlogn)  O(nlogn) O(nlogn)   No
+Tim(JS)   O(n)      O(nlogn) O(nlogn)   Yes
+(Merge + Insertion)
+
+O(1) > O(logn) > O(n) > O(nlogn) > O(n^2) > O(n^3) > O(2^n) > O(n!)
