@@ -1,3 +1,4 @@
+//To check if a given number is prime, loop from 2 to the square root of the number. If any integer evenly divides it, the number is not prime. 
 function isPrime(n) {
     if(n <= 1) {
         return false;
