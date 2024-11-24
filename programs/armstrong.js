@@ -14,14 +14,7 @@ function isArmstrongNumber(number) {
     return sum === number; // Check if the sum equals the original number
 }
 
-const number = 153;
-if (isArmstrongNumber(number)) {
-    console.log(`${number} is an Armstrong number.`);
-} else {
-    console.log(`${number} is not an Armstrong number.`);
-}
-
-isArmstrongNumber(153); // true
-isArmstrongNumber(9474); // true
-isArmstrongNumber(123); // false
+console.log(isArmstrongNumber(153)); // true
+console.log(isArmstrongNumber(9474)); // true
+console.log(isArmstrongNumber(123)); // false
 
