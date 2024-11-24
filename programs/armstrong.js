@@ -20,3 +20,8 @@ if (isArmstrongNumber(number)) {
 } else {
     console.log(`${number} is not an Armstrong number.`);
 }
+
+isArmstrongNumber(153); // true
+isArmstrongNumber(9474); // true
+isArmstrongNumber(123); // false
+
