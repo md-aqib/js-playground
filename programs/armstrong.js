@@ -7,11 +7,13 @@ For example:
 */
 
 function isArmstrongNumber(number) {
-    const digits = number.toString().split(''); // Split number into digits
-    const power = digits.length; // Get the number of digits
-    const sum = digits.reduce((acc, digit) => acc + Math.pow(Number(digit), power), 0);
-    
-    return sum === number; // Check if the sum equals the original number
+    const digits = number + "";
+    const power = digits.length;
+    let sum = 0;
+    for (let i = 0; i < digits.length; i++) {
+        sum += Math.pow(+digits[i], power)
+    }    
+    return sum === number;
 }
 
 console.log(isArmstrongNumber(153)); // true
