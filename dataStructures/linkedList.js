@@ -81,6 +81,6 @@ list.append(2)
 list.append(3)
 list.prepend(-1)
 
-console.log(list.deleteTail())
+//console.log(list.deleteTail())
 console.log(list)
 
