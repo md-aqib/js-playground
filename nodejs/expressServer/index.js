@@ -6,6 +6,12 @@ app.get('/', (req, res) => {
     res.send('Welcome to the Home Page!');
 });
 
+// Custom middleware
+app.use((req, res, next) => {
+    console.log(`Request URL: ${req.url}, Method: ${req.method}`);
+    next(); // Proceed to the next middleware or route
+});
+
 app.get('/about', (req, res) => {
     res.send('About Us');
 });
