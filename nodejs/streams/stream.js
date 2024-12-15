@@ -1,18 +1,3 @@
-const fs = require('fs');
-
-// Create a readable stream
-const readableStream = fs.createReadStream('input.txt', 'utf8');
-
-// Create a writable stream
-const writableStream = fs.createWriteStream('output.txt');
-
-// Pipe readable stream to writable stream
-readableStream.pipe(writableStream);
-
-readableStream.on('data', chunk => {
-    console.log('New Chunk:', chunk);
-});
-
 /*
 readableStream.on('data'):
 This attaches a listener to the 'data' event emitted by the readableStream.
@@ -27,3 +12,18 @@ Transfers data directly between streams in small chunks, reducing memory consump
 Chaining Streams:
 pipe() allows chaining multiple streams, such as transforming data before writing.
 */
+
+const fs = require('fs');
+
+// Create a readable stream
+const readableStream = fs.createReadStream('input.txt', 'utf8');
+
+// Create a writable stream
+const writableStream = fs.createWriteStream('output.txt');
+
+// Pipe readable stream to writable stream
+readableStream.pipe(writableStream);
+
+readableStream.on('data', chunk => {
+    console.log('New Chunk:', chunk);
+});
