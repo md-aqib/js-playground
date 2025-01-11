@@ -10,16 +10,21 @@ const nestedObject = {
 };
   
 function traverse(obj, path = '') {
+  let sum = 0
     for (const key in obj) {
       const newPath = path? `${path}.${key}`: `${key}`;
       if (typeof obj[key] === 'object' && obj[key] !== null) {
         // Recursive call for nested objects
-        traverse(obj[key], newPath);
+        sum += traverse(obj[key], newPath);
       } else {
         console.log(`${newPath}: ${obj[key]}`);
+        if(typeof obj[key] === 'number') {
+          sum += obj[key]
+        }
       }
     }
+    return sum;
 }
   
-traverse(nestedObject);
+console.log(traverse(nestedObject));
   
