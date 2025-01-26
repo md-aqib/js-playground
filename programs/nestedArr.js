@@ -7,28 +7,21 @@ console.log(nestedArray[1][2][0]); // Outputs 44
 const flattened = nestedArray.flat(Infinity);
 console.log(flattened); // Outputs: [1, 2, 3, 44, 5, 6, 7, 8]
 
-//max number
-// const maxValue = Math.max(...nestedArray.flat(Infinity));
-// console.log(maxValue); // Outputs: 44
-
-function findMaxWithLoop(array) {
-  let max = -Infinity;
-  const stack = [...array]; // Start with a copy of the array as the stack
-
-  while (stack.length > 0) {
-    const element = stack.pop(); // Get the last element
-    if (Array.isArray(element)) {
-      stack.push(...element); // If it's an array, push its elements to the stack
-    } else {
-      max = Math.max(max, element); // If it's a number, update max
+//Flattening the Array without Predefined methods
+const array = [1,2,3,4,[5,6,7],8,[9,10,[11,12,[13]]]]
+function foo(arr) {
+    let fArr = []
+    for(let ele of arr) {
+        if(Array.isArray(ele)) {
+            let newArr = foo(ele)
+            fArr.push(...newArr)
+        } else {
+            fArr.push(ele)
+        }
     }
-  }
-
-  return max;
+    return fArr;
 }
-
-const maxValue = findMaxWithLoop(nestedArray);
-console.log(maxValue); // Outputs: 44
+console.log(foo(array))
 
 
 
