@@ -11,5 +11,5 @@ if(!Array.prototype.myReduce) {
 }
 
 let array = [2, 4, 8, 4, 4, 4]
-const mappedData = array.myReduce((a, b) => a + b, 0);
+const mappedData = array.myReduce((a) => a + b, 0);
 console.log(mappedData)
