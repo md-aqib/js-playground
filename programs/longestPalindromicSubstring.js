@@ -1,34 +1,32 @@
 function longestPalindromicSubstring(s) {
-    if (s.length < 1) return "";
-  
-    let start = 0, maxLength = 0;
-  
-    function expandAroundCenter(left, right) {
+  if (s.length <= 1) return s;
+
+  let start = 0;
+  let maxLength = 0; // Initialize maxLength to 0 instead of 1
+
+  function expandAroundCenter(left, right) {
       while (left >= 0 && right < s.length && s[left] === s[right]) {
-        left--;
-        right++;
+          let currLen = right - left + 1;
+          if (currLen > maxLength) {
+              maxLength = currLen;
+              start = left;
+          }
+          left--;
+          right++;
       }
-      return [left + 1, right - 1]; // Return the valid palindrome indices
-    }
-  
-    for (let i = 0; i < s.length; i++) {
-      let [left1, right1] = expandAroundCenter(i, i);       // Odd-length palindrome
-      let [left2, right2] = expandAroundCenter(i, i + 1);   // Even-length palindrome
-  
-      if (right1 - left1 > maxLength) {
-        start = left1;
-        maxLength = right1 - left1;
-      }
-  
-      if (right2 - left2 > maxLength) {
-        start = left2;
-        maxLength = right2 - left2;
-      }
-    }
-  
-    return s.substring(start, start + maxLength + 1);
+  }
+
+  for (let i = 0; i < s.length; i++) {
+      expandAroundCenter(i, i);       // Odd-length palindrome
+      expandAroundCenter(i, i + 1);   // Even-length palindrome
+  }
+
+  return s.substring(start, start + maxLength);
 }
-  
-// Example
-console.log(longestPalindromicSubstring("babad")); // Output: "bab" or "aba"
-console.log(longestPalindromicSubstring("cbbd"));  // Output: "bb"
+
+// Example Tests
+console.log(longestPalindromicSubstring("babadabcdcba")); // Output: "bcdcb"
+console.log(longestPalindromicSubstring("cbbd"));         // Output: "bb"
+console.log(longestPalindromicSubstring("racecar"));      // Output: "racecar"
+console.log(longestPalindromicSubstring("a"));            // Output: "a"
+console.log(longestPalindromicSubstring("ac"));           // Output: "a" or "c"
