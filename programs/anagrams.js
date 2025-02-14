@@ -8,7 +8,7 @@ function groupAnagrams(words) {
         }
         anagramMap.get(sortedWord).push(word);
     }
-
+    console.log(anagramMap)
     return Array.from(anagramMap.values());
 }
 
